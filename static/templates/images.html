@@ -1,0 +1,21 @@
+{% load multiuploader %}
+
+<form method="POST" action="" enctype="multipart/form-data">
+{% csrf_token %}
+<p>
+    {{ form.text }}
+    {{ form.text.errors }}
+    {{ form.uploadedFiles }} {{ form.uploadedFiles.errors }}
+</p>
+<p>
+    {% multiuploader_noscript %}
+
+    <input id="send" type="submit" value="Send" class="button">
+    <a id="showUpload" type="button" class="button"><i class="attachment"></i>Attach files</a>
+</p>
+</form>
+
+
+{% multiuploader_form wrapper_element_id="fileuploads" form_type='images' form_selector='images' %}
+
+
